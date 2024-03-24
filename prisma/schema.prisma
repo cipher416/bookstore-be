@@ -9,8 +9,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum OrderStatus {
@@ -22,8 +23,9 @@ model User {
   UserId String @id @default(uuid())
   Email String @unique
   Password String
+  Points BigInt @default(100)
   Cart Cart[]
-  Order Order[]
+  Order OrderHeader[]
 }
 
 model Book {
@@ -34,7 +36,7 @@ model Book {
   BookPrice BigInt
   BookTags BookTag[]
   Carts Cart[]
-  Orders Order[]
+  Orders OrderDetail[]
 }
 
 model Tag {
@@ -54,18 +56,26 @@ model BookTag {
 model Cart {
   UserId String 
   BookId String
-  Quantity String
+  Quantity BigInt
   User User @relation(fields: [UserId], references: [UserId])
   Book Book @relation(fields: [BookId], references: [BookId])
   @@id([UserId, BookId])
 }
 
-model Order {
-  UserId String 
-  BookId String
-  Quantity String
-  Status OrderStatus
+model OrderHeader {
+  UserId String
+  OrderId String @id @default(uuid())
+  OrderStatus OrderStatus
+  OrderDate DateTime @default(now())
   User User @relation(fields: [UserId], references: [UserId])
+  OrderDetails OrderDetail[]
+}
+
+model OrderDetail {
+  OrderId String @default(uuid())
+  BookId String
+  Quantity BigInt
+  OrderHeader OrderHeader @relation(fields: [OrderId], references: [OrderId])
   Book Book @relation(fields: [BookId], references: [BookId])
-  @@id([UserId, BookId])
+  @@id([BookId, OrderId])
 }
