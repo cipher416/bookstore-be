@@ -36,5 +36,11 @@ export class AuthController {
         userId: result.UserId,
       }),
     );
+    return {
+      access_token: this.jwtService.sign({
+        email: result.Email,
+        userId: result.UserId,
+      }),
+    };
   }
 }

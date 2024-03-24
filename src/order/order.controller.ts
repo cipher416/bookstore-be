@@ -29,8 +29,12 @@ export class OrderController {
   }
 
   @Get()
-  findAll(@Req() request: Request, @Query() page: number) {
+  async findAll(@Req() request: Request, @Query() page: number) {
     const user = request.user as JWTUserData;
-    return this.orderService.findAll(user.userId, page, 10);
+    const data = await this.orderService.findAll(user.userId, page ?? 0, 10);
+    return {
+      data,
+      nextCursor: ++page,
+    };
   }
 }

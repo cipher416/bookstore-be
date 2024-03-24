@@ -23,7 +23,7 @@ model User {
   UserId String @id @default(uuid())
   Email String @unique
   Password String
-  Points BigInt @default(100)
+  Points Int @default(100)
   Cart Cart[]
   Order OrderHeader[]
 }
@@ -33,7 +33,7 @@ model Book {
   BookTitle String
   BookWriterName String
   BookImageURL String
-  BookPrice BigInt
+  BookPrice Int
   BookTags BookTag[]
   Carts Cart[]
   Orders OrderDetail[]
@@ -56,7 +56,7 @@ model BookTag {
 model Cart {
   UserId String 
   BookId String
-  Quantity BigInt
+  Quantity Int
   User User @relation(fields: [UserId], references: [UserId])
   Book Book @relation(fields: [BookId], references: [BookId])
   @@id([UserId, BookId])
@@ -74,7 +74,7 @@ model OrderHeader {
 model OrderDetail {
   OrderId String @default(uuid())
   BookId String
-  Quantity BigInt
+  Quantity Int
   OrderHeader OrderHeader @relation(fields: [OrderId], references: [OrderId])
   Book Book @relation(fields: [BookId], references: [BookId])
   @@id([BookId, OrderId])
