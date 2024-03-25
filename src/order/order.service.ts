@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { JWTUserData } from 'src/auth/auth.decorator';
 import { Cart, OrderDetail } from '@prisma/client';
@@ -14,6 +14,28 @@ export class OrderService {
     const carts = await this.prismaService.cart.findMany({
       where: {
         UserId: user.userId,
+      },
+      include: {
+        Book: true,
+      },
+    });
+    const totalPrice = carts.reduce((total, cart) => {
+      return total + cart.Quantity + cart.Book.BookPrice;
+    }, 0);
+    const userData = await this.prismaService.user.findFirst({
+      where: {
+        UserId: user.userId,
+      },
+    });
+    if (userData.Points - totalPrice < 0) {
+      throw new BadRequestException();
+    }
+    await this.prismaService.user.update({
+      where: {
+        UserId: userData.UserId,
+      },
+      data: {
+        Points: userData.Points - totalPrice,
       },
     });
     const header = await this.prismaService.orderHeader.create({
@@ -32,10 +54,12 @@ export class OrderService {
     await this.prismaService.orderDetail.createMany({
       data: orders,
     });
+
     await this.cartService.removeAllByUserId(user.userId);
   }
 
   findAll(userId: string, page: number, itemPerPage: number) {
+    console.log(page, itemPerPage);
     return this.prismaService.orderHeader.findMany({
       where: {
         UserId: userId,

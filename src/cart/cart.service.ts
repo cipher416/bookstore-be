@@ -9,9 +9,9 @@ export class CartService {
   async create(createCartDto: CreateCartDto, user: JWTUserData) {
     await this.prismaService.cart.create({
       data: {
-        BookId: createCartDto.BookId,
+        BookId: createCartDto.bookId,
         UserId: user.userId,
-        Quantity: createCartDto.Quantity,
+        Quantity: createCartDto.quantity,
       },
     });
   }
