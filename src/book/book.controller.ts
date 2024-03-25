@@ -1,12 +1,16 @@
 import { Controller, Get, Req, Query } from '@nestjs/common';
 import { BookService } from './book.service';
 import { Request } from 'express';
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('book')
 export class BookController {
   constructor(private readonly bookService: BookService) {}
 
   @Get()
+  @ApiOperation({
+    summary: 'Gets all books, according to page number and searchString.',
+  })
   async findAll(
     @Req() request: Request,
     @Query('page') page: number,

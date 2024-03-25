@@ -6,6 +6,7 @@ import { Controller, UseGuards } from '@nestjs/common';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { Request } from 'express';
 import { JWTUserData } from 'src/auth/auth.decorator';
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('cart')
 @UseGuards(AuthGuard)
@@ -13,6 +14,9 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Post()
+  @ApiOperation({
+    summary: "Adds item along with quantity to user's cart.",
+  })
   create(@Body() createCartDto: CreateCartDto, @Req() request: Request) {
     const user = request.user as JWTUserData;
     return this.cartService.create(createCartDto, user);

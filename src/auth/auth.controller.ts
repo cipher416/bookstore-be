@@ -6,6 +6,7 @@ import { Controller } from '@nestjs/common/decorators/core';
 import { Body, Post, Res } from '@nestjs/common/decorators/http';
 import { JwtService } from '@nestjs/jwt';
 import { Response } from 'express';
+import { ApiOperation } from '@nestjs/swagger';
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -14,10 +15,17 @@ export class AuthController {
     private jwtService: JwtService,
   ) {}
   @Post('/register')
+  @ApiOperation({
+    summary: 'Registers the user in the database.',
+  })
   async register(@Body() userData: AuthDto) {
     await this.usersService.addUser(userData.email, userData.password);
   }
   @Post('/login')
+  @ApiOperation({
+    summary:
+      'Verifies the user information against the database. Returns bearer token to client.',
+  })
   async login(
     @Body() userData: AuthDto,
     @Res({ passthrough: true }) response: Response,
