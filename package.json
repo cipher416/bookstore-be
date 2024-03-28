@@ -29,7 +29,6 @@
     "@nestjs/swagger": "^7.3.0",
     "@prisma/client": "^5.11.0",
     "@types/cookie-parser": "^1.4.7",
-    "D": "^1.0.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "passport": "^0.7.0",
