@@ -21,7 +21,7 @@ let BookController = class BookController {
     constructor(bookService) {
         this.bookService = bookService;
     }
-    async findAll(request, page, searchString) {
+    async findAll(page, searchString) {
         const res = await this.bookService.findAll(searchString ?? '', page ?? 0, 10);
         return {
             data: res,
@@ -35,11 +35,10 @@ __decorate([
     (0, swagger_1.ApiOperation)({
         summary: 'Gets all books, according to page number and searchString.',
     }),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Query)('page')),
-    __param(2, (0, common_1.Query)('searchString')),
+    __param(0, (0, common_1.Query)('page')),
+    __param(1, (0, common_1.Query)('searchString')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Number, String]),
+    __metadata("design:paramtypes", [Number, String]),
     __metadata("design:returntype", Promise)
 ], BookController.prototype, "findAll", null);
 exports.BookController = BookController = __decorate([

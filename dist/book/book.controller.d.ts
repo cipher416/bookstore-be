@@ -1,10 +1,8 @@
-/// <reference types="cookie-parser" />
 import { BookService } from './book.service';
-import { Request } from 'express';
 export declare class BookController {
     private readonly bookService;
     constructor(bookService: BookService);
-    findAll(request: Request, page: number, searchString: string): Promise<{
+    findAll(page: number, searchString: string): Promise<{
         data: ({
             BookTags: ({
                 Tag: {

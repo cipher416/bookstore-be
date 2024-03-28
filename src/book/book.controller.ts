@@ -1,6 +1,5 @@
-import { Controller, Get, Req, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { BookService } from './book.service';
-import { Request } from 'express';
 import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('book')
@@ -12,7 +11,6 @@ export class BookController {
     summary: 'Gets all books, according to page number and searchString.',
   })
   async findAll(
-    @Req() request: Request,
     @Query('page') page: number,
     @Query('searchString') searchString: string,
   ) {
