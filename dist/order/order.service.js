@@ -14,6 +14,8 @@ const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
 const cart_service_1 = require("../cart/cart.service");
 let OrderService = class OrderService {
+    prismaService;
+    cartService;
     constructor(prismaService, cartService) {
         this.prismaService = prismaService;
         this.cartService = cartService;

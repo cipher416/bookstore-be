@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const book_service_1 = require("./book.service");
 const swagger_1 = require("@nestjs/swagger");
 let BookController = class BookController {
+    bookService;
     constructor(bookService) {
         this.bookService = bookService;
     }

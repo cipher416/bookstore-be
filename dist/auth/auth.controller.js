@@ -22,6 +22,9 @@ const http_1 = require("@nestjs/common/decorators/http");
 const jwt_1 = require("@nestjs/jwt");
 const swagger_1 = require("@nestjs/swagger");
 let AuthController = class AuthController {
+    usersService;
+    authService;
+    jwtService;
     constructor(usersService, authService, jwtService) {
         this.usersService = usersService;
         this.authService = authService;

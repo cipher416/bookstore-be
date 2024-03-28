@@ -14,6 +14,7 @@ const core_1 = require("@nestjs/common/decorators/core");
 const bcrypt_1 = require("bcrypt");
 const users_service_1 = require("../users/users.service");
 let AuthService = class AuthService {
+    usersService;
     constructor(usersService) {
         this.usersService = usersService;
     }

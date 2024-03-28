@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const jwt_1 = require("@nestjs/jwt");
 let AuthGuard = class AuthGuard {
+    jwtService;
+    reflector;
     constructor(jwtService, reflector) {
         this.jwtService = jwtService;
         this.reflector = reflector;

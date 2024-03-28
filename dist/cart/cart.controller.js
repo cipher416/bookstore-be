@@ -20,6 +20,7 @@ const common_1 = require("@nestjs/common");
 const auth_guard_1 = require("../auth/auth.guard");
 const swagger_1 = require("@nestjs/swagger");
 let CartController = class CartController {
+    cartService;
     constructor(cartService) {
         this.cartService = cartService;
     }

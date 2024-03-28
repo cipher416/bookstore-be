@@ -13,6 +13,7 @@ exports.CartService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
 let CartService = class CartService {
+    prismaService;
     constructor(prismaService) {
         this.prismaService = prismaService;
     }

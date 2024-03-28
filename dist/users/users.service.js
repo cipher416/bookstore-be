@@ -14,6 +14,7 @@ const prisma_service_1 = require("../prisma.service");
 const bcrypt_1 = require("bcrypt");
 const core_1 = require("@nestjs/common/decorators/core");
 let UsersService = class UsersService {
+    prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }

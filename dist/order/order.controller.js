@@ -18,6 +18,7 @@ const order_service_1 = require("./order.service");
 const auth_guard_1 = require("../auth/auth.guard");
 const swagger_1 = require("@nestjs/swagger");
 let OrderController = class OrderController {
+    orderService;
     constructor(orderService) {
         this.orderService = orderService;
     }
