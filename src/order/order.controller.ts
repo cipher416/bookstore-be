@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { Request } from 'express';
-import { JWTUserData } from 'src/auth/auth.decorator';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { JWTUserData } from '../auth/auth.decorator';
+import { AuthGuard } from '../auth/auth.guard';
 import { ApiOperation } from '@nestjs/swagger';
 
 @UseGuards(AuthGuard)

@@ -1,4 +1,4 @@
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { hash } from 'bcrypt';
 import { Prisma, User } from '@prisma/client';
 import { Injectable } from '@nestjs/common/decorators/core';

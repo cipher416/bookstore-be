@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCartDto } from './dto/create-cart.dto';
-import { JWTUserData } from 'src/auth/auth.decorator';
-import { PrismaService } from 'src/prisma.service';
+import { JWTUserData } from '../auth/auth.decorator';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class CartService {

@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
-import { JWTUserData } from 'src/auth/auth.decorator';
+import { PrismaService } from '../prisma.service';
+import { JWTUserData } from '../auth/auth.decorator';
 import { Cart, OrderDetail } from '@prisma/client';
-import { CartService } from 'src/cart/cart.service';
+import { CartService } from '../cart/cart.service';
 
 @Injectable()
 export class OrderService {

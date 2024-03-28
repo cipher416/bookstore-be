@@ -1,5 +1,5 @@
 import { UnauthorizedException } from '@nestjs/common';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from '../users/users.service';
 import { AuthDto } from './auth.dto';
 import { AuthService } from './auth.service';
 import { Controller } from '@nestjs/common/decorators/core';

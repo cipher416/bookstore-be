@@ -3,9 +3,9 @@ import { CartService } from './cart.service';
 import { CreateCartDto } from './dto/create-cart.dto';
 
 import { Controller, UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 import { Request } from 'express';
-import { JWTUserData } from 'src/auth/auth.decorator';
+import { JWTUserData } from '../auth/auth.decorator';
 import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('cart')
