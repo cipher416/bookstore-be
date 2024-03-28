@@ -27,6 +27,7 @@ exports.AppModule = AppModule = __decorate([
             order_module_1.OrderModule,
             book_module_1.BookModule,
         ],
+        exports: [AppModule],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

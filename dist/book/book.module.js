@@ -17,6 +17,7 @@ exports.BookModule = BookModule;
 exports.BookModule = BookModule = __decorate([
     (0, common_1.Module)({
         controllers: [book_controller_1.BookController],
+        exports: [book_service_1.BookService],
         providers: [book_service_1.BookService, prisma_service_1.PrismaService],
     })
 ], BookModule);

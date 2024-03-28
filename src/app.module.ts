@@ -15,5 +15,6 @@ import { BookModule } from './book/book.module';
     OrderModule,
     BookModule,
   ],
+  exports: [AppModule],
 })
 export class AppModule {}
