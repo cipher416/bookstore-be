@@ -1,10 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+// import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+// import { json } from 'express';
+// import * as cookieParser from 'cookie-parser';
 
-import cors from 'cors';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.use(cors());
+  const app = await NestFactory.create(AppModule, { cors: true });
+
   // const config = new DocumentBuilder()
   //   .setTitle('Bookstore API')
   //   .setDescription('')
