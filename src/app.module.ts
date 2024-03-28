@@ -5,7 +5,7 @@ import { Module } from '@nestjs/common/decorators/modules';
 import { CartModule } from './cart/cart.module';
 import { OrderModule } from './order/order.module';
 import { BookModule } from './book/book.module';
-import { SwaggerModule } from '@nestjs/swagger';
+// import { SwaggerModule } from '@nestjs/swagger';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { SwaggerModule } from '@nestjs/swagger';
     CartModule,
     OrderModule,
     BookModule,
-    SwaggerModule,
+    // SwaggerModule,
   ],
   exports: [AppModule],
 })

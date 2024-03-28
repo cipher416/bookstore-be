@@ -14,7 +14,6 @@ const modules_1 = require("@nestjs/common/decorators/modules");
 const cart_module_1 = require("./cart/cart.module");
 const order_module_1 = require("./order/order.module");
 const book_module_1 = require("./book/book.module");
-const swagger_1 = require("@nestjs/swagger");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,7 +26,6 @@ exports.AppModule = AppModule = __decorate([
             cart_module_1.CartModule,
             order_module_1.OrderModule,
             book_module_1.BookModule,
-            swagger_1.SwaggerModule,
         ],
         exports: [AppModule],
     })
