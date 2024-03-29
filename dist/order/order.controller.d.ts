@@ -8,14 +8,14 @@ export declare class OrderController {
     update(id: string): Promise<{
         UserId: string;
         OrderId: string;
-        OrderStatus: import("@prisma/client").$Enums.OrderStatus;
+        OrderStatus: import(".prisma/client").$Enums.OrderStatus;
         OrderDate: Date;
     }>;
     findAll(request: Request, page: number): Promise<{
         data: {
             UserId: string;
             OrderId: string;
-            OrderStatus: import("@prisma/client").$Enums.OrderStatus;
+            OrderStatus: import(".prisma/client").$Enums.OrderStatus;
             OrderDate: Date;
         }[];
         nextCursor: number;
